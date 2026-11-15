@@ -955,7 +955,7 @@
                        directly; set Netlify's form notification to the
                        same inbox. If sending fails it falls back to email.
      ========================================================= */
-  const DELIVERY = { method: "email", to: ["jordan", "leask.com.au"].join("@") };
+  const DELIVERY = { method: /^https?:$/.test(location.protocol) ? "netlify" : "email", to: ["jordan", "leask.com.au"].join("@") };
 
   const form = document.getElementById("enquiry"), err = document.getElementById("form-error");
   const phone = document.getElementById("f-phone"), submitBtn = document.getElementById("f-submit");
